@@ -93,11 +93,9 @@ NFA thompsons_construction ( const char *regex) {
 }
 
 int main() {
-    const char *regex = "a|b";
+    const char *regex = "(a|b)a";
     NFA nfa = thompsons_construction(regex);
     printf("NFA for regex '%s':\n", regex);
-
-    printf("piranha %c \n", nfa.states[nfa.num_states-2].transitions[0].symbol);
 
     for (int i = 0; i < nfa.num_states; i++) {
         State state = nfa.states[i];
@@ -110,5 +108,4 @@ int main() {
     }
     return 0 ;
 }
-
 
